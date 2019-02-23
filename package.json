@@ -1,0 +1,12 @@
+{
+  "name": "perspective-movement",
+  "version": "0.1.0",
+  "description": "Perspective animation on mouse move library.",
+  "main": "index.js",
+  "author": "Shawn Liu",
+  "license": "MIT",
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1"
+  }
+}
