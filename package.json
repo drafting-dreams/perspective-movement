@@ -1,13 +1,16 @@
 {
   "name": "perspective-movement",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Perspective animation on mouse move library.",
   "author": "Shawn Liu",
   "main": "dist/pm.cjs.js",
-  "mainV2": "dist/pm.cjs.js",
-  "moduleV2": "dist/pm.esm.js",
-  "browserV2": "dist/pm.js",
+  "module": "dist/pm.esm.js",
+  "browser": "dist/pm.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drafting-dreams/perspective-movement"
+  },
   "dependencies": {
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1"
@@ -17,12 +20,16 @@
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
+    "cypress": "^3.1.5",
+    "live-server": "^1.2.1",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-uglify": "^6.0.2"
   },
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "node ./scripts/runTests.js",
+    "test:dev": "cypress open"
   }
 }

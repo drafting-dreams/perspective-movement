@@ -21,8 +21,6 @@ const init = function() {
   getClientInfo()
   window.addEventListener('mousemove', throttledMovement)
   window.addEventListener('resize', debouncedGetClient)
-
-  console.log($pmElements)
 }
 
 function movementListener(e) {

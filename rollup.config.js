@@ -10,7 +10,7 @@ export default [
   {
     input,
     output: {
-      file: pkg.browserV2,
+      file: pkg.browser,
       name: 'PM',
       format: 'umd'
     },
@@ -27,8 +27,8 @@ export default [
     input,
     external: Object.keys(pkg.dependencies),
     output: [
-      { file: pkg.mainV2, format: 'cjs' },
-      { file: pkg.moduleV2, format: 'es' }
+      { file: pkg.main, format: 'cjs' },
+      { file: pkg.module, format: 'es' }
     ]
   }
 ]
