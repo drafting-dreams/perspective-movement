@@ -40,7 +40,7 @@ function updateTransformStyle(tf, dataset, options) {
     if (dataset.hasOwnProperty(translation.pm)) {
       tf = filterTransform(tf, translation.translateFunc)
       // Assemble the new transform string
-      const offset = dataset[translation.pm] ? dataset[translation.pm] : options[translation.pm]
+      const offset = dataset[translation.pm] ? dataset[translation.pm] : options ? options[translation.pm] : 1
       tf = `${PERSPECTIVE} ${tf} ${translation.translateFunc}(${_calculator[translation.translateFunc](offset)}${translation.unit})`
     }
   })
