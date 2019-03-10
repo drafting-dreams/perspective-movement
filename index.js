@@ -12,9 +12,11 @@ let standard = {
   x: 0,
   y: 0
 }
+let global_options
 
-const init = function() {
+const init = function(options) {
   // initialize variables
+  global_options = options
   throttledMovement = _throttle(movementListener)
   debouncedGetClient = _debounce(getClientInfo)
   $pmElements = document.querySelectorAll('[data-pm]')
@@ -24,7 +26,7 @@ const init = function() {
 }
 
 function movementListener(e) {
-  listener(e, $pmElements, standard)
+  listener(e, $pmElements, standard, global_options)
 }
 
 function getClientInfo() {

@@ -16,4 +16,7 @@ describe('PM Tests', function () {
   it('translatey', function () {
     cy.get('.translatey').should('have.attr', 'style', 'transform: perspective(100px) translateY(-0.604167px);')
   })
+  it('use default', function () {
+    cy.get('.usedefault').should('have.attr', 'style', 'transform: perspective(100px) rotateX(3.02083deg) rotateY(-4.64129deg) translateX(-4.64129px) translateY(-3.02083px);')
+  })
 })

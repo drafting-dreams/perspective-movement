@@ -24,23 +24,24 @@ const TRANSLATIONS = [
   }
 ]
 
-function listener(e, $elements, clientInfo) {
+function listener(e, $elements, clientInfo, options) {
   event = e
   client = clientInfo
   for (let element of $elements) {
     let tf = element.style.transform
     const dataset = element.dataset
-    tf = updateTransformStyle(tf, dataset)
+    tf = updateTransformStyle(tf, dataset, options)
     element.style.transform = tf
   }
 }
 
-function updateTransformStyle(tf, dataset) {
+function updateTransformStyle(tf, dataset, options) {
   TRANSLATIONS.forEach(translation => {
-    if (dataset[translation.pm]) {
+    if (dataset.hasOwnProperty(translation.pm)) {
       tf = filterTransform(tf, translation.translateFunc)
       // Assemble the new transform string
-      tf = `${PERSPECTIVE} ${tf} ${translation.translateFunc}(${_calculator[translation.translateFunc](dataset[translation.pm])}${translation.unit})`
+      const offset = dataset[translation.pm] ? dataset[translation.pm] : options[translation.pm]
+      tf = `${PERSPECTIVE} ${tf} ${translation.translateFunc}(${_calculator[translation.translateFunc](offset)}${translation.unit})`
     }
   })
   return tf
